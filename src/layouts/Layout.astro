@@ -1,0 +1,78 @@
+---
+export interface Props {
+  title: string
+}
+
+const { title } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --red-color: #de3d2b; /* Este color es rojo oscuro */
+    --red-m-color: #8c271e; /* Este color es rojo oscuro */
+    --blue-M-color: #256e92; /* Este color es azul medio */
+    --black-color: #2c2c2c; /* Este color es negro */
+    --blue-l-color: #46b5f9; /* Este color es azul claro */
+    --brown-color: #323232; /* Este color es marrón oscuro */
+    --gley-color: #b0cbc9; /* Este color es gris azulado claro */
+    --blue-green-color: #9ce3fb; /* Este color es azul verdoso medio */
+    --yellow-color: #ffa608; /* Este color es amarillo */
+    --green-color: #39b348; /* Este color es verde */
+    --white-color: #ffffff; /* Este color es blanco */
+
+    --width-screen: 400px;
+  }
+
+  html {
+    font-family: system-ui, sans-serif;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    background-color: var(--blue-l-color);
+    line-height: 1.5;
+    font-weight: 400;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+    padding: 0;
+  }
+</style>

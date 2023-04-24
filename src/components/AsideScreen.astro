@@ -1,0 +1,257 @@
+<aside class='aside'>
+  <div class='aside__decor'></div>
+  <section class='aside__container'>
+    <div class='aside__screen'></div>
+    <div class='aside__bar-Button'>
+      <article class='item'></article>
+      <article class='item'></article>
+      <article class='item'></article>
+      <article class='item'></article>
+      <article class='item'></article>
+      <article class='item'></article>
+      <article class='item'></article>
+      <article class='item'></article>
+      <article class='item'></article>
+      <article class='item'></article>
+    </div>
+    <div class='aside__btn-container'>
+      <div class='aside__btn-circle'></div>
+      <div class='aside__btn-circle'></div>
+      <div class='aside__btn-rectangle'></div>
+      <div class='aside__btn-rectangle'></div>
+    </div>
+    <div class='aside__btn-interactive'>
+      <div class='aside__btn-left'></div>
+      <div class='aside__btn-right'></div>
+      <div class='aside__btn-growl'></div>
+    </div>
+    <div class='aside__screen-preview'>
+      <div class='aside__screen-left'></div>
+      <div class='aside__screen-right'></div>
+    </div>
+  </section>
+</aside>
+
+<style>
+  .aside {
+    width: var(--width-screen);
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+
+  .aside__decor {
+    position: relative;
+    top: 16px;
+    width: 200px;
+    height: 60px;
+    background-color: var(--red-color);
+    border: 1rem solid var(--brown-color);
+    border-left: none;
+    border-bottom: none;
+    border-radius: 0 45px 0 0;
+  }
+
+  .aside__decor::before {
+    z-index: 99;
+    content: '';
+    position: absolute;
+    width: 184px;
+    height: 52px;
+    background-color: var(--red-color);
+    border: 0.5rem solid var(--red-m-color);
+    border-bottom: none;
+    border-radius: 0 25px 0 0;
+  }
+
+  .aside__decor::after {
+    z-index: 99;
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 168px;
+    height: 46px;
+    background-color: var(--red-color);
+    border: 2px solid var(--black-color);
+    border-bottom: none;
+    border-radius: 0 15px 0 0;
+  }
+
+  .aside__container {
+    position: relative;
+    width: var(--width-screen);
+    height: 450px;
+    background-color: var(--red-color);
+    border: 1rem solid var(--brown-color);
+    border-left: none;
+    border-radius: 0 45px 45px 0;
+  }
+
+  .aside__container::before {
+    content: '';
+    position: absolute;
+    width: 384px;
+    height: 418px;
+    background-color: var(--red-color);
+    border: 0.5rem solid var(--red-m-color);
+    border-radius: 0 25px 25px 0;
+  }
+
+  .aside__container::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 368px;
+    height: 402px;
+    background-color: var(--red-color);
+    border: 2px solid var(--black-color);
+    border-radius: 0 15px 15px 0;
+  }
+
+  .aside__screen {
+    z-index: 90;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 85%;
+    height: 35%;
+    background-color: var(--black-color);
+    border-radius: 20px;
+    border: 7px solid var(--brown-color);
+  }
+
+  .aside__bar-Button {
+    z-index: 99;
+    position: absolute;
+    top: calc(25px + 35% + 7px);
+    left: 25px;
+    width: 85%;
+    height: 20%;
+    background-color: var(--black-color);
+    border-radius: 10px;
+    border: 7px solid var(--black-color);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 4px;
+    grid-row-gap: 4px;
+  }
+
+  .item {
+    background-color: var(--white-color);
+  }
+
+  .aside__btn-container {
+    z-index: 90;
+    position: absolute;
+    top: calc(25px + 35% + 7px + 20% + 7px);
+    left: 25px;
+    width: 85%;
+    height: 25px;
+  }
+
+  .aside__btn-circle {
+    position: absolute;
+    background-color: var(--black-color);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+  }
+
+  .aside__btn-circle:nth-child(1) {
+    left: 35px;
+  }
+
+  .aside__btn-circle:nth-child(2) {
+    left: 75px;
+  }
+
+  .aside__btn-rectangle {
+    position: absolute;
+    background-color: var(--black-color);
+    top: 10px;
+    width: 25px;
+    height: 5px;
+  }
+
+  .aside__btn-rectangle:nth-child(3) {
+    left: 215px;
+  }
+
+  .aside__btn-rectangle:nth-child(4) {
+    left: 280px;
+  }
+
+  .aside__btn-interactive {
+    z-index: 99;
+    position: absolute;
+    top: calc(25px + 35% + 7px + 20% + 7px + 25px + 7px);
+    left: 25px;
+    width: 85%;
+    height: 40px;
+  }
+
+  .aside__btn-left {
+    position: absolute;
+    left: 0;
+    width: 80px;
+    height: 40px;
+    background-color: var(--white-color);
+    border: 3px solid var(--black-color);
+    border-bottom: 8px solid var(--black-color);
+    border-radius: 10px 0 0 10px;
+  }
+
+  .aside__btn-right {
+    position: absolute;
+    left: 80px;
+    width: 80px;
+    height: 40px;
+    background-color: var(--white-color);
+    border: 3px solid var(--black-color);
+    border-right: 8px solid var(--black-color);
+    border-bottom: 8px solid var(--black-color);
+    border-radius: 0 10px 10px 0;
+  }
+
+  .aside__btn-growl {
+    position: absolute;
+    left: 272.5px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--white-color);
+    border: 5px solid var(--black-color);
+    border-radius: 50%;
+  }
+
+  .aside__screen-preview {
+    z-index: 99;
+    position: absolute;
+    top: calc(25px + 35% + 7px + 20% + 7px + 25px + 7px + 40px + 7px);
+    left: 25px;
+    width: 85%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .aside__screen-left {
+    width: 35%;
+    height: 100%;
+    background-color: var(--black-color);
+    border: 7px solid var(--brown-color);
+    border-radius: 10px;
+  }
+
+  .aside__screen-right {
+    width: 35%;
+    height: 100%;
+    background-color: var(--black-color);
+    border: 7px solid var(--brown-color);
+    border-radius: 10px;
+  }
+</style>
