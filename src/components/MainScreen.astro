@@ -1,4 +1,8 @@
 <section class='mainScreen'>
+  <article class='main__decor'>
+    <div class='main__circle-big'></div>
+    <div class='main__circle-little'></div>
+  </article>
   <article class='main__screen-container'>
     <div class='main__screen-decor'></div>
     <div class='main__screen-decor'></div>
@@ -18,6 +22,83 @@
     border-radius: 45px 0 0 45px;
     display: flex;
     justify-content: center;
+  }
+
+  .main__decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    background-color: var(--red-color);
+    border-left: 7px solid var(--white-color);
+    border-top: 7px solid var(--white-color);
+    border-bottom: 1rem solid var(--brown-color);
+    border-top-left-radius: 25px;
+  }
+
+  .main__decor::before {
+    z-index: 99;
+    content: '';
+    position: absolute;
+    left: -7px;
+    bottom: -65px;
+    width: 50%;
+    height: 65px;
+    background-color: var(--red-color);
+    border-left: 7px solid var(--white-color);
+    border-right: 1rem solid var(--brown-color);
+    border-bottom: 1rem solid var(--brown-color);
+    border-radius: 0 0 45px 0;
+  }
+
+  .main__circle-big {
+    z-index: 999;
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 90px;
+    height: 90px;
+    background-color: var(--blue-green-color);
+    border: 12px solid var(--brown-color);
+    border-radius: 50%;
+  }
+
+  .main__circle-little {
+    position: absolute;
+    top: 10px;
+    left: 200px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--yellow-color);
+    border: 5px solid var(--brown-color);
+    border-radius: 50%;
+  }
+
+  .main__circle-little::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -60px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--red-color);
+    border: 5px solid var(--brown-color);
+    border-radius: 50%;
+    transform: rotate(45deg);
+  }
+
+  .main__circle-little::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50px;
+    width: 40px;
+    height: 40px;
+    background-color: var(--green-color);
+    border: 5px solid var(--brown-color);
+    border-radius: 50%;
+    transform: rotate(45deg);
   }
 
   .main__screen-container {
