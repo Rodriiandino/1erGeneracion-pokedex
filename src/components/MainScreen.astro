@@ -10,6 +10,15 @@
     <div class='main__screen-btn'></div>
     <div class='main__screeb-song'></div>
   </article>
+  <article class='main__btn-container'>
+    <div class='main__btn-circle'></div>
+    <div class='main__btn-decor'></div>
+    <div class='main__btn-decor'></div>
+    <div class='main__btn-bar'></div>
+    <div class='main__btn-bar'></div>
+    <div class='main__btn-screen'></div>
+    <div class='main__btn-cruz'></div>
+  </article>
 </section>
 
 <style>
@@ -103,35 +112,21 @@
 
   .main__screen-container {
     position: absolute;
-    top: 175px;
+    top: 145px;
     width: 88%;
-    height: 43%;
+    height: 48%;
     background-color: var(--gley-color);
     border: 7px solid var(--brown-color);
     border-radius: 30px;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 99%, 22% 100%, 0 75%);
-    clip-path: polygon(0 0, 100% 0, 100% 99%, 22% 100%, 0 75%);
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
-  .main__screen-container::before {
-    content: '';
-    position: absolute;
-    top: 200px;
-    left: -126px;
-    width: 100%;
-    height: 7px;
-    background-color: var(--brown-color);
-    transform: rotate(41deg);
-    border-bottom: 1px solid var(--red-color);
-  }
-
   .main__screen-pokemon {
     position: absolute;
     top: 15px;
-    width: 75%;
+    width: 85%;
     height: 75%;
     background-color: var(--blue-green-color);
     border-radius: 30px;
@@ -191,5 +186,85 @@
     width: 55px;
     height: 2px;
     background-color: var(--brown-color);
+  }
+
+  .main__btn-container {
+    position: absolute;
+    top: 425px;
+    width: 90%;
+    height: 23%;
+  }
+
+  .main__btn-circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--blue-green-color);
+    border-radius: 50%;
+    border: 7px solid var(--brown-color);
+  }
+
+  .main__btn-decor {
+    position: absolute;
+    top: 53%;
+    width: 20px;
+    height: 20px;
+    background-color: var(--brown-color);
+    border-radius: 50px;
+  }
+
+  .main__btn-decor:nth-child(2) {
+    left: 30px;
+  }
+
+  .main__btn-bar {
+    position: absolute;
+    top: 15px;
+    left: 60px;
+    width: 70px;
+    height: 20px;
+    background-color: var(--green-color);
+    border: 4px solid var(--brown-color);
+    border-radius: 50px;
+  }
+
+  .main__btn-bar:nth-child(4) {
+    background-color: var(--yellow-color);
+    left: 155px;
+  }
+
+  .main__btn-screen {
+    position: absolute;
+    top: 50px;
+    left: 60px;
+    width: 50%;
+    height: 40%;
+    background-color: var(--green-color);
+    border: 5px solid var(--brown-color);
+    border-radius: 10px;
+  }
+
+  .main__btn-cruz {
+    position: absolute;
+    top: 20px;
+    left: 72%;
+    width: 80px;
+    height: 80px;
+    background-color: var(--gley-color);
+
+    clip-path: polygon(
+      0 30%,
+      30% 30%,
+      30% 0,
+      70% 0,
+      70% 30%,
+      100% 30%,
+      100% 70%,
+      70% 70%,
+      70% 100%,
+      30% 100%,
+      30% 70%,
+      0 70%
+    );
   }
 </style>
