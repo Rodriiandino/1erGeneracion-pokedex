@@ -1,3 +1,59 @@
+<script>
+  const getPokemon = async () => {
+    try {
+      const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
+      const res = await fetch(url)
+      const pokemon = await res.json()
+
+      // Sea almacena todos los datos de los Pokémon de la primera generación
+      const pokemonList = pokemon.results.slice(0, 151)
+
+      let currentIndex = 0 // Índice del Pokémon actual
+
+      const displayPokemon = async () => {
+        const getPokemonDetails = async pokemonUrl => {
+          try {
+            const res = await fetch(pokemonUrl)
+            const pokemonDetails = await res.json()
+
+            console.log(pokemonDetails)
+
+            // Aqui se realiza todas operaciones con los detalles del Pokémon
+            const pokemonImageUrl =
+              pokemonDetails.sprites.versions['generation-i']['red-blue']
+                .front_transparent
+
+            // Seleccionar el div de pantalla principal del Pokémon
+            const $mainScreenPokemonDiv = document.querySelector(
+              '.main__screen-pokemon'
+            ) as HTMLDivElement
+            $mainScreenPokemonDiv.style.backgroundImage = `url(${pokemonImageUrl})`
+          } catch (error) {
+            console.log(error)
+          }
+        }
+
+        const pokemonData = pokemonList[currentIndex].url
+        await getPokemonDetails(pokemonData)
+      }
+
+      // Mostrar el primer Pokémon al cargar la página
+      displayPokemon()
+
+      // Obtener el botón y asociar la función de cambio de Pokémon al hacer clic
+      const $nextButton = document.querySelector('.main__screen-btn')
+      $nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % pokemonList.length // Avanzar al siguiente Pokémon o volver al principio si se llega al final
+        displayPokemon()
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  getPokemon()
+</script>
+
 <section class='mainScreen'>
   <article class='main__decor'>
     <div class='main__circle-big'></div>
@@ -7,7 +63,7 @@
     <div class='main__screen-decor'></div>
     <div class='main__screen-decor'></div>
     <div class='main__screen-pokemon'></div>
-    <div class='main__screen-btn'></div>
+    <div class='main__screen-btn'>👉</div>
     <div class='main__screeb-song'></div>
   </article>
   <article class='main__btn-container'>
@@ -131,6 +187,9 @@
     background-color: var(--blue-green-color);
     border-radius: 30px;
     border: 7px solid var(--brown-color);
+    background-size: 110%;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 
   .main__screen-decor {
