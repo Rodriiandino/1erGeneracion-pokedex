@@ -4,6 +4,73 @@ import Gear from './Gear.astro'
 import AsideScreean from './AsideScreen.astro'
 ---
 
+<script>
+  const getPokemonDetails = async pokemonUrl => {
+    try {
+      const res = await fetch(pokemonUrl)
+      const pokemonDetails = await res.json()
+
+      console.log(pokemonDetails)
+
+      // Aqui se realiza todas operaciones con los detalles del Pokémon
+      const pokemonImageUrl =
+        pokemonDetails.sprites.versions['generation-i']['red-blue']
+          .front_transparent
+
+      // Seleccionar el div de pantalla principal del Pokémon
+      const $mainScreenPokemonDiv = document.querySelector(
+        '.main__screen-pokemon'
+      ) as HTMLDivElement
+      $mainScreenPokemonDiv.style.backgroundImage = `url(${pokemonImageUrl})`
+
+      const $asideScreean = document.querySelector(
+        '.aside__screen'
+      ) as HTMLDivElement
+      $asideScreean.innerHTML = `<h2>${pokemonDetails.name}</h2>`
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const getPokemon = async () => {
+    try {
+      const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
+      const res = await fetch(url)
+      const pokemon = await res.json()
+
+      // Sea almacena todos los datos de los Pokémon de la primera generación
+      const pokemonList = pokemon.results.slice(0, 151)
+
+      let currentIndex = 0 // Índice del Pokémon actual
+
+      const displayPokemon = async () => {
+        const pokemonData = pokemonList[currentIndex].url
+        await getPokemonDetails(pokemonData)
+      }
+
+      // Mostrar el primer Pokémon al cargar la página
+      displayPokemon()
+
+      // Obtener el botón y asociar la función de cambio de Pokémon al hacer clic
+      const $nextButton = document.querySelector('.main__screen-btn')
+      $nextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % pokemonList.length // Avanzar al siguiente Pokémon o volver al principio si se llega al final
+        displayPokemon()
+      })
+
+      const $asideNextButton = document.querySelector('.aside__btn-right')
+      $asideNextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % pokemonList.length // Avanzar al siguiente Pokémon o volver al principio si se llega al final
+        displayPokemon()
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  getPokemon()
+</script>
+
 <main>
   <MainScreean />
   <Gear />
