@@ -1,7 +1,14 @@
 <aside class='aside'>
   <div class='aside__decor'></div>
   <section class='aside__container'>
-    <div class='aside__screen'></div>
+    <div class='aside__screen'>
+      <h2 class='pokemon-name'></h2>
+      <div class='pokemon-types'>
+        <h3>pokemon types:</h3>
+        <ul class='pokemon-type'></ul>
+      </div>
+    </div>
+
     <div class='aside__bar-Button'>
       <article class='item'></article>
       <article class='item'></article>
@@ -14,17 +21,20 @@
       <article class='item'></article>
       <article class='item'></article>
     </div>
+
     <div class='aside__btn-container'>
       <div class='aside__btn-circle'></div>
       <div class='aside__btn-circle'></div>
       <div class='aside__btn-rectangle'></div>
       <div class='aside__btn-rectangle'></div>
     </div>
+
     <div class='aside__btn-interactive'>
       <div class='aside__btn-left'></div>
       <div class='aside__btn-right'>👉</div>
       <div class='aside__btn-growl'></div>
     </div>
+
     <div class='aside__screen-preview'>
       <div class='aside__screen-left'></div>
       <div class='aside__screen-right'></div>
@@ -113,6 +123,8 @@
   }
 
   .aside__screen {
+    display: flex;
+    flex-direction: column;
     z-index: 90;
     position: absolute;
     top: 25px;
@@ -259,5 +271,38 @@
     .aside {
       display: none;
     }
+  }
+
+  .pokemon-name {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--white-color);
+    text-shadow: 2px 2px 2px var(--black-color);
+    text-transform: uppercase;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .pokemon-types {
+    background-color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    border-radius: 0 0 10px 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pokemon-type {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.2rem;
+    margin: 0;
+    font-weight: 700;
+    color: var(--white-color);
+    text-transform: uppercase;
   }
 </style>

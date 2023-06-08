@@ -12,7 +12,6 @@ import AsideScreean from './AsideScreen.astro'
 
       console.log(pokemonDetails)
 
-      // Aqui se realiza todas operaciones con los detalles del Pokémon
       const pokemonImageUrl =
         pokemonDetails.sprites.versions['generation-i']['red-blue']
           .front_transparent
@@ -23,10 +22,47 @@ import AsideScreean from './AsideScreen.astro'
       ) as HTMLDivElement
       $mainScreenPokemonDiv.style.backgroundImage = `url(${pokemonImageUrl})`
 
-      const $asideScreean = document.querySelector(
-        '.aside__screen'
+      const $pokemonName = document.querySelector(
+        '.pokemon-name'
       ) as HTMLDivElement
-      $asideScreean.innerHTML = `<h2>${pokemonDetails.name}</h2>`
+      $pokemonName.innerHTML = `${pokemonDetails.name}`
+
+      // Tipo de Pokémon
+      const typeColors = {
+        normal: 'gray',
+        fire: 'orange',
+        water: 'blue',
+        grass: 'green',
+        electric: 'yellow',
+        ice: 'lightblue',
+        fighting: 'red',
+        poison: 'purple',
+        ground: 'brown',
+        flying: 'skyblue',
+        psychic: 'pink',
+        bug: 'lime',
+        rock: 'tan',
+        ghost: 'indigo',
+        dragon: 'darkblue'
+      }
+
+      // Cambiar el color de fondo del nombre del Pokémon según sus tipos
+      const types = pokemonDetails.types.map(type => type.type.name)
+
+      $pokemonName.style.background = `linear-gradient(to right, ${types
+        .map(type => typeColors[type])
+        .join(', ')})`
+
+      const $pokemonTypes = document.querySelector(
+        '.pokemon-type'
+      ) as HTMLDivElement
+
+      $pokemonTypes.innerHTML = types
+        .map(
+          type =>
+            `<li style="background-color: ${typeColors[type]}; padding:0.3rem 0.5rem; border-radius: 15px ">${type}</li>`
+        )
+        .join('')
     } catch (error) {
       console.log(error)
     }
