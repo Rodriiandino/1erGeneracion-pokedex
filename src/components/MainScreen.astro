@@ -6,8 +6,10 @@
   <article class='main__screen-container'>
     <div class='main__screen-decor'></div>
     <div class='main__screen-decor'></div>
-    <div class='main__screen-pokemon'></div>
-    <div class='main__screen-btn'>👉</div>
+    <div class='main__screen-pokemon'>
+      <div class='pokemon'></div>
+    </div>
+    <div class='main__screen-btn'></div>
     <div class='main__screeb-song'></div>
   </article>
   <article class='main__btn-container'>
@@ -17,7 +19,12 @@
     <div class='main__btn-bar'></div>
     <div class='main__btn-bar'></div>
     <div class='main__btn-screen'></div>
-    <div class='main__btn-cruz'></div>
+    <div class='main__btn-cruz'>
+      <button class='main__btn-cruz-top main__next'>X</button>
+      <button class='main__btn-cruz-left main__back'>Y</button>
+      <button class='main__btn-cruz-right main__next'>A</button>
+      <button class='main__btn-cruz-bottom main__back'>B</button>
+    </div>
   </article>
 </section>
 
@@ -131,7 +138,16 @@
     background-color: var(--blue-green-color);
     border-radius: 30px;
     border: 7px solid var(--brown-color);
-    background-size: 110%;
+    background-image: url(/fondo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .pokemon {
+    width: 100%;
+    height: 100%;
+    background-size: 102%;
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -269,5 +285,71 @@
       30% 70%,
       0 70%
     );
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--white-color);
+  }
+
+  .main__btn-cruz-top {
+    position: absolute;
+    top: 0px;
+    left: 18px;
+    width: 44px;
+    height: 42px;
+    background-color: var(--blue-m-color);
+    clip-path: polygon(100% 0, 100% 40%, 50% 100%, 0 40%, 0 0);
+  }
+
+  .main__btn-cruz-top:hover {
+    border-top: solid 2px var(--brown-color);
+  }
+
+  .main__btn-cruz-bottom {
+    position: absolute;
+    bottom: 0px;
+    left: 18px;
+    width: 44px;
+    height: 42px;
+    background-color: var(--yellow-color);
+    clip-path: polygon(100% 100%, 100% 60%, 50% 0, 0 60%, 0 100%);
+  }
+
+  .main__btn-cruz-bottom:hover {
+    border-bottom: solid 2px var(--brown-color);
+  }
+
+  .main__btn-cruz-left {
+    position: absolute;
+    top: 18px;
+    left: 0px;
+    width: 42px;
+    height: 44px;
+    background-color: var(--green-color);
+    clip-path: polygon(0 0, 40% 0, 100% 50%, 40% 100%, 0 100%);
+  }
+
+  .main__btn-cruz-left:hover {
+    border-left: solid 2px var(--brown-color);
+  }
+
+  .main__btn-cruz-right {
+    position: absolute;
+    top: 18px;
+    right: 0px;
+    width: 42px;
+    height: 44px;
+    background-color: var(--red-m-color);
+    clip-path: polygon(100% 0, 60% 0, 0 50%, 60% 100%, 100% 100%);
+  }
+
+  .main__btn-cruz-right:hover {
+    border-right: solid 2px var(--brown-color);
   }
 </style>

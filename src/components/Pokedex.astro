@@ -12,13 +12,11 @@ import AsideScreean from './AsideScreen.astro'
 
       console.log(pokemonDetails)
 
-      const pokemonImageUrl =
-        pokemonDetails.sprites.versions['generation-i']['red-blue']
-          .front_transparent
+      const pokemonImageUrl = pokemonDetails.sprites.front_default
 
       // Seleccionar el div de pantalla principal del Pokémon
       const $mainScreenPokemonDiv = document.querySelector(
-        '.main__screen-pokemon'
+        '.pokemon'
       ) as HTMLDivElement
       $mainScreenPokemonDiv.style.backgroundImage = `url(${pokemonImageUrl})`
 
@@ -43,7 +41,8 @@ import AsideScreean from './AsideScreen.astro'
         bug: 'lime',
         rock: 'tan',
         ghost: 'indigo',
-        dragon: 'darkblue'
+        dragon: 'darkblue',
+        fairy: 'lightpink'
       }
 
       // Cambiar el color de fondo del nombre del Pokémon según sus tipos
@@ -88,15 +87,33 @@ import AsideScreean from './AsideScreen.astro'
       displayPokemon()
 
       // Obtener el botón y asociar la función de cambio de Pokémon al hacer clic
-      const $nextButton = document.querySelector('.main__screen-btn')
-      $nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % pokemonList.length // Avanzar al siguiente Pokémon o volver al principio si se llega al final
+      const $nextButtons = document.querySelectorAll('.main__next')
+      $nextButtons.forEach($nextButton => {
+        $nextButton.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % pokemonList.length // Avanzar al siguiente Pokémon o volver al principio si se llega al final
+          displayPokemon()
+        })
+      })
+
+      const $backButtons = document.querySelectorAll('.main__back')
+      $backButtons.forEach($backButton => {
+        $backButton.addEventListener('click', () => {
+          currentIndex =
+            (currentIndex - 1 + pokemonList.length) % pokemonList.length // Volver de Pokémon
+          displayPokemon()
+        })
+      })
+
+      const $asideNextButton = document.querySelector('.aside__next')
+      $asideNextButton.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % pokemonList.length
         displayPokemon()
       })
 
-      const $asideNextButton = document.querySelector('.aside__btn-right')
-      $asideNextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % pokemonList.length // Avanzar al siguiente Pokémon o volver al principio si se llega al final
+      const $asideBackButton = document.querySelector('.aside__back')
+      $asideBackButton.addEventListener('click', () => {
+        currentIndex =
+          (currentIndex - 1 + pokemonList.length) % pokemonList.length
         displayPokemon()
       })
     } catch (error) {
