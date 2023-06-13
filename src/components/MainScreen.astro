@@ -18,7 +18,10 @@
     <div class='main__btn-decor'></div>
     <div class='main__btn-bar'></div>
     <div class='main__btn-bar'></div>
-    <div class='main__btn-screen'></div>
+    <div class='main__btn-screen'>
+      <div class='pokemon-height pokemon-action'></div>
+      <div class='pokemon-weight pokemon-action'></div>
+    </div>
     <div class='main__btn-cruz'>
       <button class='main__btn-cruz-top main__next'>X</button>
       <button class='main__btn-cruz-left main__back'>Y</button>
@@ -261,6 +264,9 @@
     background-color: var(--green-color);
     border: 5px solid var(--brown-color);
     border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
 
   .main__btn-cruz {
@@ -351,5 +357,11 @@
 
   .main__btn-cruz-right:hover {
     border-right: solid 2px var(--brown-color);
+  }
+
+  .pokemon-action {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--white-color);
   }
 </style>
