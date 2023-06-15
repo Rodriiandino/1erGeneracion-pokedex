@@ -21,9 +21,19 @@ import AsideScreean from './AsideScreen.astro'
       $mainScreenPokemonDiv.style.backgroundImage = `url(${pokemonImageUrl})`
 
       const $pokemonName = document.querySelector(
+        '.main__pokemon-name'
+      ) as HTMLDivElement
+
+      $pokemonName.innerHTML = `${pokemonDetails.name}`
+
+      const $asidePokemonName = document.querySelector(
         '.pokemon-name'
       ) as HTMLDivElement
-      $pokemonName.innerHTML = `${pokemonDetails.name}`
+      $asidePokemonName.innerHTML = `${pokemonDetails.name}`
+
+      const $mainPokemonType = document.querySelector(
+        '.main__circle-big'
+      ) as HTMLDivElement
 
       // Tipo de Pokémon
       const typeColors = {
@@ -48,7 +58,29 @@ import AsideScreean from './AsideScreen.astro'
       // Cambiar el color de fondo del nombre del Pokémon según sus tipos
       const types = pokemonDetails.types.map(type => type.type.name)
 
+      if (types.length === 2) {
+        $mainPokemonType.style.background = `linear-gradient(to right, ${
+          typeColors[types[0]]
+        }, ${typeColors[types[1]]})`
+
+        $pokemonName.style.background = `linear-gradient(to right, ${
+          typeColors[types[0]]
+        }, ${typeColors[types[1]]})`
+
+        $asidePokemonName.style.background = `linear-gradient(to right, ${
+          typeColors[types[0]]
+        }, ${typeColors[types[1]]})`
+      } else {
+        $mainPokemonType.style.background = `${typeColors[types[0]]}`
+        $pokemonName.style.background = `${typeColors[types[0]]}`
+        $asidePokemonName.style.background = `${typeColors[types[0]]}`
+      }
+
       $pokemonName.style.background = `linear-gradient(to right, ${types
+        .map(type => typeColors[type])
+        .join(', ')})`
+
+      $asidePokemonName.style.background = `linear-gradient(to right, ${types
         .map(type => typeColors[type])
         .join(', ')})`
 

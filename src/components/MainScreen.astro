@@ -7,7 +7,9 @@
     <div class='main__screen-decor'></div>
     <div class='main__screen-decor'></div>
     <div class='main__screen-pokemon'>
-      <div class='pokemon'></div>
+      <div class='pokemon'>
+        <h1 class='main__pokemon-name'></h1>
+      </div>
     </div>
     <div class='main__screen-btn'></div>
     <div class='main__screeb-song'></div>
@@ -81,6 +83,7 @@
     background-color: var(--blue-green-color);
     border: 12px solid var(--brown-color);
     border-radius: 50%;
+    transform: rotate(45deg);
   }
 
   .main__circle-little {
@@ -153,6 +156,23 @@
     background-size: 102%;
     background-repeat: no-repeat;
     background-position: center;
+  }
+
+  .main__pokemon-name {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    background-color: var(--gley-color);
+    border-left: 3px solid var(--brown-color);
+    border-top: 3px solid var(--brown-color);
+    border-bottom: 3px solid var(--brown-color);
+    border-right: 3px solid var(--brown-color);
+    border-radius: 17px 5px 17px 5px;
+    text-align: center;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: white;
   }
 
   .main__screen-decor {
