@@ -10,8 +10,6 @@ import AsideScreean from './AsideScreen.astro'
       const res = await fetch(pokemonUrl)
       const pokemonDetails = await res.json()
 
-      console.log(pokemonDetails)
-
       const pokemonImageUrl = pokemonDetails.sprites.front_default
 
       // Seleccionar el div de pantalla principal del Pokémon
