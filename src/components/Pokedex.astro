@@ -8,6 +8,9 @@ import AsideScreean from './AsideScreen.astro'
   const getPokemonDetails = async pokemonUrl => {
     try {
       const res = await fetch(pokemonUrl)
+
+      if (!res.ok) throw new Error('Error al obtener los datos del Pokémon')
+
       const pokemonDetails = await res.json()
 
       const pokemonImageUrl = pokemonDetails.sprites.front_default
@@ -128,6 +131,9 @@ import AsideScreean from './AsideScreen.astro'
     try {
       const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
       const res = await fetch(url)
+
+      if (!res.ok) throw new Error('Error al obtener a los Pokémon')
+
       const pokemon = await res.json()
 
       // Sea almacena todos los datos de los Pokémon de la primera generación
