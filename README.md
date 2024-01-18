@@ -1,47 +1,12 @@
-# Astro Starter Kit: Minimal
+# 1erGeneracion-pokedex
 
-```
-npm create astro@latest -- --template minimal
-```
+Diseño de la Pokedex de la primera generación realizado con CSS, y usando JavaScript para hacer el fetch a la api de pokeApi. Se utilizo el framework 'Astro'.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+## Lo que Aprendí
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Aprender usar el framework Astro.
+- Mejorar mis habilidades de programación en HTML y CSS.
 
-## 🚀 Project Structure
+![491shots_so](https://github.com/Rodriiandino/1erGeneracion-pokedex/assets/106351323/0f59ac80-a083-4bf7-922c-b45430a79006)
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+![784shots_so](https://github.com/Rodriiandino/1erGeneracion-pokedex/assets/106351323/de7a0dc5-5db3-4ca9-9368-9397d5cc16d8)
